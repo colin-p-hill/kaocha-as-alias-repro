@@ -1,5 +1,4 @@
 (ns com.colinphill.extra-special.impl.test
-  {:clj-kondo/config '{:linters {:aliased-namespace-var-usage {:level :off}}}}
   (:require
    [clojure.core.match :as m]
    [clojure.spec.alpha :as s]
