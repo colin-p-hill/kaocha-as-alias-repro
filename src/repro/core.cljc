@@ -1,4 +1,4 @@
-(ns com.colinphill.extra-special
+(ns repro.core
   (:require [clojure.test :as t]))
 
 (t/deftest trivial-test
