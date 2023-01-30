@@ -2,9 +2,6 @@
         {:tests      [{:id          :unit
                        :test-paths  ["src"]
                        :ns-patterns [""]}]
-         :fail-fast? #profile {:watch true}
-         :randomize? #profile {:watch false}
-         :watch?     #profile {:watch true}
          :reporter   [com.colinphill.extra-special.impl.test.kaocha/reporter
                       kaocha.report/documentation
                       #_kaocha.report/dots]}
