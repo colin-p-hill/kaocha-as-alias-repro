@@ -2,7 +2,6 @@
   (:require
    [clojure.test :as t]
    [clojure.test.check.generators :as-alias gen]
-   [cognitect.anomalies :as anom]
    [com.colinphill.extra-special :as-alias es])
   (:import (java.util.concurrent ExecutionException)))
 
