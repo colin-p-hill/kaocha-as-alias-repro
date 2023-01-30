@@ -1,7 +1,6 @@
 (ns com.colinphill.extra-special.impl.test
   (:require
    [clojure.test :as t]
-   [clojure.test.check.generators :as-alias gen]
    [com.colinphill.extra-special :as-alias es]))
 
 
