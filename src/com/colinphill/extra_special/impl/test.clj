@@ -72,6 +72,3 @@
                     expound-fixture
                     instrument-fixture
                     spec-assert-fixture)))
-
-
-(prepare-ns!)
