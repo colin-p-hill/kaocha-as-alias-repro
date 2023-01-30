@@ -8,5 +8,4 @@
 (require '[expound.alpha :as-alias expound]
          '[orchestra.spec.test :as-alias o])
 (when t/*load-tests*
-  (require 'expound.alpha
-           'orchestra.spec.test))
+  (require 'expound.alpha))
