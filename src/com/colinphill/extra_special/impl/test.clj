@@ -1,6 +1,5 @@
 (ns com.colinphill.extra-special.impl.test
   (:require
-   [clojure.spec.alpha :as s]
    [clojure.test :as t]
    [clojure.test.check.generators :as-alias gen]
    [cognitect.anomalies :as anom]
