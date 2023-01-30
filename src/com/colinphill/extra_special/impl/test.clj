@@ -5,7 +5,6 @@
 
 
 ;; Declare aliases unconditionally to satisfy reader
-(require '[expound.alpha :as-alias expound]
-         '[orchestra.spec.test :as-alias o])
+(require '[expound.alpha :as-alias expound])
 (when t/*load-tests*
   (require 'expound.alpha))
