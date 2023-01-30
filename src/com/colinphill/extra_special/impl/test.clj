@@ -2,8 +2,7 @@
   (:require
    [clojure.test :as t]
    [clojure.test.check.generators :as-alias gen]
-   [com.colinphill.extra-special :as-alias es])
-  (:import (java.util.concurrent ExecutionException)))
+   [com.colinphill.extra-special :as-alias es]))
 
 
 ;; Declare aliases unconditionally to satisfy reader
