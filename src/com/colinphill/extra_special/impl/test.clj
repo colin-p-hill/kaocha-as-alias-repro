@@ -1,6 +1,5 @@
 (ns com.colinphill.extra-special.impl.test
   (:require
-   [clojure.core.match :as m]
    [clojure.spec.alpha :as s]
    [clojure.test :as t]
    [clojure.test.check.generators :as-alias gen]
