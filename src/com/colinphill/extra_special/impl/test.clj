@@ -6,5 +6,4 @@
 
 ;; Declare aliases unconditionally to satisfy reader
 (require '[expound.alpha :as-alias expound])
-(when t/*load-tests*
-  (require 'expound.alpha))
+(when t/*load-tests*)
