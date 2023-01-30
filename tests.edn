@@ -3,5 +3,5 @@
                        :test-paths  ["src"]
                        :ns-patterns [""]}]
          :randomize? false
-         :reporter   [repro.custom-reporter/reporter
+         :reporter   [repro.kaocha-reporter/reporter
                       kaocha.report/documentation]}
