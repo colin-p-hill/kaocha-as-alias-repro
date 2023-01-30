@@ -1,0 +1,116 @@
+{;;;; General configuration
+ :config-paths
+ ["../resources/clj-kondo.exports/com.colinphill/extra-special"]
+ :output       {:linter-name true}
+
+
+ ;;;; Special cases
+ :config-in-call
+ {com.colinphill.extra-special.impl.ns/rc
+  ;; Will be unnecessary in coming release of clj-kondo
+  {:linters {:aliased-namespace-var-usage {:level :off}}}
+  com.colinphill.extra-special.impl.ns/require
+  {:linters {:unknown-require-option
+             {:exclude [:com.colinphill.extra-special.impl.ns/when]}}}
+  com.rpl.specter/defnav
+  ;; TODO: Write a hook
+  {:linters {:unresolved-symbol {:level :off}}}}
+
+ :ns-groups    [{:pattern "^hooks\\..*" :name hooks}]
+ :config-in-ns {hooks {:linters {:missing-docstring {:level :off}}}}
+
+ :config-in-comment
+ {:linters {:duplicate-require {:level :off}}}
+
+ :lint-as
+ {;; TODO: report this as a missing default
+  clojure.test.check.clojure-test/defspec clojure.test/deftest}
+
+ :hooks        {:analyze-call
+                {com.colinphill.extra-special.impl.ns/require
+                 hooks.com.colinphill.extra-special.impl.ns/require}}
+
+
+ ;;;; Linters
+ :linters
+ {:aliased-namespace-symbol      {:level :warning}
+  :bb.edn-task-missing-docstring {:level :warning}
+  ;; Elevated because these mistakes may conceal more serious ones.
+  :clj-kondo-config              {:level :error}
+  :consistent-alias              {:aliases
+                                  {clojure.core            c
+                                   clojure.spec.test.alpha stest
+                                   malli.core              m}}
+  ;; Elevated because these mistakes may conceal more serious ones.
+  :deps.edn                      {:level :error}
+  :docstring-leading-trailing-whitespace
+  {:level :warning}
+  :docstring-no-summary          {:level :warning}
+  ;; Elevated because these mistakes may conceal more serious ones,
+  ;; e.g., pointing an alias to the wrong namespace.
+  :duplicate-require             {:level :error}
+  ;; Not presently usable, as it cannot process `:clj-kondo/ignore`
+  ;; hints on comments.
+  #_#_:line-length {:max-line-length 80}
+  ;; Elevated because nearly all cases result from a forgotten `recur`,
+  ;; which may cause logic errors.
+  :loop-without-recur            {:level :error}
+  :missing-docstring             {:level :warning}
+  ;; Elevated because these mistakes may result in fatal errors.
+  :namespace-name-mismatch       {:level :error}
+  ;; Elevated because the easy-to-miss nature of this mistake may
+  ;; severely impede debugging.
+  :quoted-case-test-constant     {:level :error}
+  ;; See https://purelyfunctional.tv/issues/purelyfunctional-tv-newsletter-313-always-use-the-3-argument-version-of-reduce/
+  :reduce-without-init           {:level :warning}
+  :redundant-call
+  {:level   :warning
+   :include #{clojure.core/-> clojure.core/->>
+              clojure.core/cond-> clojure.core/cond->>
+              clojure.core/some-> clojure.core/some->>
+              clojure.core/comp
+              clojure.core/conj!
+              clojure.core/disj!
+              clojure.core/identity
+              clojure.core/into
+              clojure.core/merge
+              clojure.core/or
+              clojure.core/partial
+              cljs.core/-> cljs.core/->>
+              cljs.core/cond-> cljs.core/cond->>
+              cljs.core/some-> cljs.core/some->>
+              cljs.core/comp
+              cljs.core/conj!
+              cljs.core/disj!
+              cljs.core/identity
+              cljs.core/into
+              cljs.core/merge
+              cljs.core/or
+              cljs.core/partial}}
+  :redundant-fn-wrapper          {:level :warning}
+  :refer                         {:level :warning}
+  :shadowed-var                  {:level   :warning
+                                  :exclude [max min ns]
+                                  :suggest {class  cls
+                                            fn     f
+                                            key    k
+                                            keys   ks
+                                            map    m
+                                            reader rdr
+                                            str    s
+                                            symbol sym
+                                            val    v
+                                            vals   vs}}
+  :unresolved-symbol
+  {:exclude [;; Technically the patterns will accept any symbol, but there's
+             ;; little reason to use any symbol other than `_`.
+             (com.colinphill.extra-special.impl.test/assert-explain [_])
+             (com.colinphill.extra-special.impl.test/assert-conform [_])
+             (com.colinphill.extra-special.impl.test/assert-pattern [_])]}
+  ;; Exclusions for bindings that commonly serve as documentation.
+  :unused-binding                {:exclude-destructured-as true
+                                  :exclude-defmulti-args   true}
+  ;; Elevated because fixing this in a later commit causes diff noise.
+  :unsorted-required-namespaces  {:level :error}
+  :unused-value                  {:level :warning}
+  :used-underscored-binding      {:level :warning}}}

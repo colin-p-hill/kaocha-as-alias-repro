@@ -1,0 +1,9 @@
+# IntelliJ
+/.idea/
+/.iml
+
+# Clojure
+/.cpcache/
+/.nrepl-port
+/.clj-kondo/.cache/
+/.eastwood

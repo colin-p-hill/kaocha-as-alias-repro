@@ -1,0 +1,13 @@
+#kaocha/v1
+        {:tests      [{:id          :unit
+                       :test-paths  ["src"]
+                       :ns-patterns [""]}]
+         :bindings
+         #profile {:watch {clojure.test/*stack-trace-depth* 3
+                           clojure.core/*print-length*      5}}
+         :fail-fast? #profile {:watch true}
+         :randomize? #profile {:watch false}
+         :watch?     #profile {:watch true}
+         :reporter   [com.colinphill.extra-special.impl.test.kaocha/reporter
+                      kaocha.report/documentation
+                      #_kaocha.report/dots]}

@@ -1,0 +1,1 @@
+{:lint-as {com.colinphill.extra-special/let-expr clojure.core/let}}
