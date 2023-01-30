@@ -2,8 +2,7 @@
  :paths ["src" "resources"]
  :aliases
  {:env/dev
-  {:extra-deps  {org.slf4j/slf4j-jdk14   {:mvn/version "2.0.5"}}
-   :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"]}
+  {:extra-deps  {org.slf4j/slf4j-jdk14   {:mvn/version "2.0.5"}}}
   :run/test
   {:extra-deps {lambdaisland/kaocha {:mvn/version "1.76.1230"}}
    :main-opts  ["-m" "kaocha.runner"]}}}
