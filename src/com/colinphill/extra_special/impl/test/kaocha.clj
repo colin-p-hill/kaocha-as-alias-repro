@@ -5,7 +5,7 @@
    [kaocha.report :as report]))
 
 (defmacro ^:private with-print-opts [opts & body]
-  `(ns/rc lambdaisland.deep-diff2.puget.printer/with-options
+  `((requiring-resolve 'lambdaisland.deep-diff2.puget.printer/with-options)
           ~opts
           ~@body))
 (defonce ^:private orig (get-method report/print-expr :default))
