@@ -9,6 +9,4 @@
          '[orchestra.spec.test :as-alias o])
 (when t/*load-tests*
   (require 'expound.alpha
-           'orchestra.spec.test
-           ;; Loaded for side effect of registering specs
-           'speculative.instrument))
+           'orchestra.spec.test))
