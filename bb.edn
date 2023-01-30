@@ -1,9 +1,0 @@
-{:tasks {init-clj-kondo
-         ;; TODO: Figure out how to exclude my own exports.
-         ;; TODO: Use the clj-kondo pod
-         (shell "clj-kondo"
-           "--lint" (with-out-str (clojure "-A:clj-kondo-configs -Spath"))
-           "--dependencies"
-           "--parallel"
-           "--copy-configs")
-         test (apply clojure "-M:env/dev:run/test" *command-line-args*)}}
