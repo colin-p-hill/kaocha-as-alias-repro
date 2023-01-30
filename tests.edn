@@ -4,5 +4,4 @@
                        :ns-patterns [""]}]
          :randomize? false
          :reporter   [com.colinphill.extra-special.impl.test.kaocha/reporter
-                      kaocha.report/documentation
-                      #_kaocha.report/dots]}
+                      kaocha.report/documentation]}
